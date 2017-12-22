@@ -14,6 +14,10 @@ gem 'pg'
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# Use Bootstrap-sass to convert Less to Sass
+gem 'bootstrap-sass', '>= 3.3.7'
+# Use font-awesome-rails for web fonts and stylesheets
+gem 'font-awesome-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -33,7 +37,6 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
 
 group :development, :test do
   # Use RSpec-rails as the testing framework

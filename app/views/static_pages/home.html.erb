@@ -1,12 +1,18 @@
 <% content_for :title, "Home" %>
-<h1>Foot Quinta</h1>
+<div class="center jumbotron">
+  <h1>Foot Quinta <i class="fa fa-futbol-o fa-1x" aria-hidden="true"></i> </h1>
 
-<p>
-  This is the home page for the Foot_Quinta app.
-</p>
 
-<p>
-  It uses some of the chapters from the
-  <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-  by Michael Hartl
-</p>
+  <h2>
+    This is the home page for the Foot_Quinta app.
+  </h2>
+
+  <p>
+    It uses some of the chapters from the
+    <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+    by Michael Hartl
+  </p>
+
+  <%= link_to "Sign up now!", '#', class: "btn btn-lg btn-primary" %>
+
+</div>
