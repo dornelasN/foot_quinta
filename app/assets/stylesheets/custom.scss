@@ -1,6 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* Variables */
+
+$dark-green: #003300;
+$light-gray: #777;
+
 /* Universal */
 
 body {
@@ -18,16 +23,15 @@ textarea {
 
 .center {
   text-align: center;
-}
-
-.center h1 {
-  margin-bottom: 10px;
+  h1 {
+    margin-bottom: 10px
+  }
 }
 
 /* header */
 
 .navbar-fixed-top{
-  background-color: #003300;
+  background-color: $dark-green;
 }
 
 #logo {
@@ -53,8 +57,8 @@ textarea {
 footer {
   margin: 45px 10px 0 10px;
   padding-top: 5px;
-  border-top: 1px solid black;
-  color: #777;
+  border-top: 1px solid $dark-green;
+  color: $dark-green;
   a {
     color: #555;
     &:hover {
@@ -75,7 +79,6 @@ footer {
 
 }
 
-
 /* Typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -95,7 +98,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #777;
+  color: $light-gray;
 }
 
 p {
