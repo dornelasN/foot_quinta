@@ -1,0 +1,17 @@
+<% content_for :title, "Contact-me" %>
+<h1>Contact-Me</h1>
+
+<!--TODO: Figure out why @messages won't work -->
+<%= form_for Message.new, url: create_message_path do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder: 'Name', class: 'form-control' %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, placeholder: 'email', class: 'form-control' %>
+
+  <%= f.label :message %>
+  <%= f.text_area :body, placeholder: 'Message content', class: 'form-control'%>
+
+  <%= f.submit 'Send', class: 'btn btn-primary' %>
+<% end %>
