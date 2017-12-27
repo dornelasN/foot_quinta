@@ -23,7 +23,7 @@ RSpec.describe Message, type: :model do
       @message.name = ''
 
       expect(@message).to_not be_valid, 'Blank name: message should be invalid'
-      expect(@message.errors[:name].to_s).to match /blank/
+      expect(@message.errors[:name].to_s).to match(/blank/)
     end
 
     it 'should not be valid if name is too long' do
@@ -37,7 +37,7 @@ RSpec.describe Message, type: :model do
       @message.email = ''
 
       expect(@message).to_not be_valid, 'Blank email: message should be invalid'
-      expect(@message.errors[:email].to_s).to match /blank/
+      expect(@message.errors[:email].to_s).to match(/blank/)
     end
 
     it 'should not be valid if email is too long' do
@@ -71,7 +71,7 @@ RSpec.describe Message, type: :model do
       @message.body = ''
 
       expect(@message).to_not be_valid, 'Blank body: message should be invalid'
-      expect(@message.errors[:body].to_s).to match /blank/
+      expect(@message.errors[:body].to_s).to match(/blank/)
     end
   end
 end

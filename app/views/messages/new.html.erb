@@ -2,7 +2,7 @@
 <h1>Contact</h1>
 
 <!--TODO: Figure out why @message won't work -->
-<%= form_for @message, url: create_message_url do |f| %>
+<%= form_for(Message.new, url: messages_path) do |f| %>
 
   <%= f.label :name %>
   <%= f.text_field :name, placeholder: 'Name', class: 'form-control' %>
