@@ -5,6 +5,14 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
+
+    if @message.valid?
+      flash[:success] = 'Message received, thanks!'
+      redirect_to root_path
+    else
+      flash[:danger] = 'There was an error with your message'
+      redirect_to contact_path
+    end
   end
 
   private
