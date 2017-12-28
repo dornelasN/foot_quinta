@@ -1,6 +1,10 @@
 <% content_for :title, "Contact Us" %>
 <h1>Contact</h1>
 
+<p class="center">
+  Have anything to share with us? Please send a message through the form below
+  with your contact information so that we can get back to you!
+</p>
 <!--TODO: Figure out why @message won't work -->
 <%= form_for(@message = Message.new, url: contact_path) do |f| %>
   <%= form_errors_for @message %>

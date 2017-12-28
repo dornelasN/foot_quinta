@@ -10,12 +10,13 @@ describe 'POST #create' do
       }
     }
 
-    # expect(response).to redirect_to(assigns(:message))
     follow_redirect!
 
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
     expect(response).to render_template(root_path)
     expect(flash[:success]).to be_present
   end
+
 
   it 'should not submit an invalid message' do
     post contact_path, params: {
