@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-expectations.git
-  revision: b47fa00d88b278970eea0871edb8d791eea8e08d
+  revision: eafc87f06b3823442a9b5c372be753d1aad51a47
   branch: master
   specs:
     rspec-expectations (3.8.pre)
@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-mocks.git
-  revision: c779938d326fb5c25ae3031e6b26c8f78462c9e3
+  revision: e1e9ce04db4d5f591486ed38617beb553637d08d
   branch: master
   specs:
     rspec-mocks (3.8.pre)
@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-rails.git
-  revision: 399a740d88f122beb088f4f9937ad5a8b1685dc8
+  revision: ba4874f1101189658ac325c8a240dc0fc9c90da7
   branch: master
   specs:
     rspec-rails (3.8.pre)
@@ -139,7 +139,7 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.10.3)
     multi_json (1.12.2)
-    nio4r (2.1.0)
+    nio4r (2.2.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     pg (0.21.0)
@@ -211,7 +211,7 @@ GEM
     turbolinks-source (5.0.3)
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
-    uglifier (4.0.2)
+    uglifier (4.1.0)
       execjs (>= 0.3.0, < 3)
     web-console (3.5.1)
       actionview (>= 5.0)
