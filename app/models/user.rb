@@ -1,5 +1,10 @@
+# Schema: User(name:string, email:string, password_digest:string)
 class User < ApplicationRecord
   before_save { downcase_email }
+
+  # Secure Password Attribute (password and password_confirmation)
+  has_secure_password
+  validates :password, presence: true, length: { minimum: 6 }
 
   # Name attribute validation
   validates :name, presence: true, length: { maximum: 55 }

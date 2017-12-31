@@ -14,7 +14,7 @@ RSpec.describe 'static_pages/home.html.erb', type: :view do
            layout: 'layouts/application.html.erb'
 
     expect(rendered).to have_link('Home', href: root_path)
-    expect(rendered).to have_link('foot quinta', href: root_path)
+    expect(rendered).to have_link('sb cuervos', href: root_path)
     expect(rendered).to have_link('Help', href: help_path)
     expect(rendered).to have_link('About', href: about_path)
     expect(rendered).to have_link('Contact', href: contact_path)

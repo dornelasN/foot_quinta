@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'a new user' do
     before(:each) do
-      @user = User.new(name: 'Test User Name', email: 'user_email@test.com')
+      @user = User.new(name: 'Test User Name', email: 'user_email@test.com',
+                       password: 'password', password_confirmation: 'password')
     end
 
     it 'should respond to name, email, password, and password confirmation' do
@@ -14,7 +15,7 @@ RSpec.describe User, type: :model do
       expect(@user).to be_valid
     end
 
-        it 'should not be valid if name is blank' do
+    it 'should not be valid if name is blank' do
       @user.name = ''
 
       expect(@user).to_not be_valid, 'Blank name: user should be invalid'
@@ -76,6 +77,18 @@ RSpec.describe User, type: :model do
       @user.save
 
       expect(@user.reload.email).to eq mixed_case_email.downcase
+    end
+
+    it 'should not be valid if password is blank' do
+      @user.password = @user.password_confirmation = ''
+
+      expect(@user).not_to be_valid
+    end
+
+    it 'should not be valid if password is smaller than 6 characters' do
+      @user.password = @user.password_confirmation = 'a' * 5
+
+      expect(@user).not_to be_valid
     end
   end
 end
