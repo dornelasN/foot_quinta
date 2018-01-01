@@ -18,10 +18,15 @@ class User < ApplicationRecord
 
   # Profile picture attribute
   mount_uploader :picture, ProfilePictureUploader
+  validate :picture_size
 
   private
 
   def downcase_email
     email.downcase!
+  end
+
+  def picture_size
+    errors.add(:picture, 'should be less than 5MB') if picture.size > 5.megabytes
   end
 end

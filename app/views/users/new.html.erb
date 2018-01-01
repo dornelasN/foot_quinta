@@ -19,9 +19,18 @@
       <%= f.password_field :password_confirmation, class: 'form-control'%>
 
       <%= f.label :profile_image, 'Profile Image' %>
-      <%= f.file_field :picture %>
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
 
       <%= f.submit 'Create my account', class: 'btn btn-primary' %>
     <% end %>
   </div>
 </div>
+
+<script type="text/javascript">
+  $('#user_picture').bind('change', function() {
+    var size_ing_megabyte = this.file[0].size/1024/1024;
+    if (size_in_megabytes > 5){
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+  })
+</sript>
