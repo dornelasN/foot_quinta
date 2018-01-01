@@ -16,6 +16,8 @@ describe 'User signup' do
   end
 
   it 'should create a new user and login if valid information is submitted' do
+    user_count_before_post = User.count
+
     post signup_path, params: {
       user: {
         name: 'Test User',
@@ -24,8 +26,10 @@ describe 'User signup' do
         password_confirmation: 'password'
       }
     }
+    follow_redirect!
 
     expect(flash[:success]).to be_present
-    # TODO: improve sign up test
+    expect(user_count_before_post).to be < User.count
+    expect(response).to render_template(root_path)
   end
 end
