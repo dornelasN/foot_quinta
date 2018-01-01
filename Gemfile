@@ -33,7 +33,15 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '3.1.11'
+# Image uploader
+gem 'carrierwave', '1.1.0'
+# Image resizing
+gem 'mini_magick', '4.7.0'
+# Image upload in production
+gem 'fog-aws', '2.0.0'
+# Dependency for fog-aws
+gem 'nokogiri', '1.8.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

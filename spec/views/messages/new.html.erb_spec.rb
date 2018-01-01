@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'messages/new.html.erb', type: :view do
   it 'should have the contact-me form' do
+    assign(:message, Message.new)
+
     render
 
     expect(rendered).to have_field(type: :text)

@@ -5,18 +5,18 @@
   Have anything to share with us? Please send a message through the form below
   with your contact information so that we can get back to you!
 </p>
-<!--TODO: Figure out why @message won't work -->
-<%= form_for(@message = Message.new, url: contact_path) do |f| %>
+
+<%= form_for(@message, url: contact_path) do |f| %>
   <%= form_errors_for @message %>
-  <br/>
+
   <%= f.label :name %>
   <%= f.text_field :name, placeholder: 'Name', class: 'form-control' %>
-  <br/>
+
   <%= f.label :email %>
   <%= f.email_field :email, placeholder: 'email', class: 'form-control' %>
-  <br/>
+
   <%= f.label :message %>
   <%= f.text_area :body, placeholder: 'Message content', class: 'form-control'%>
-  <br/>
+
   <%= f.submit 'Send', class: 'btn btn-primary' %>
 <% end %>

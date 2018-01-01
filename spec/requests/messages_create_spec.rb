@@ -23,6 +23,6 @@ describe 'POST #create' do
       message: { name: '', email: '', body: '' }
     }
 
-    expect(flash[:danger]).to be_present
+    expect(response).to render_template('shared/_form_errors')
   end
 end
