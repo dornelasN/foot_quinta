@@ -2,7 +2,7 @@
 <h1>Sign up</h1>
 
 <div class='row'>
-  <div class='col-md-6 cold-md-offset-3'>
+  <div class='col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4'>
     <%= form_for(@user, url: signup_path) do |f| %>
       <%= form_errors_for @user %>
 
@@ -33,4 +33,4 @@
       alert('Maximum file size is 5MB. Please choose a smaller file.');
     }
   })
-</sript>
+</script>
