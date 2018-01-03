@@ -20,5 +20,10 @@ describe 'User logout' do
 
     expect(response).to render_template(root_path)
     expect(response.body).to match('Log in')
+
+    # Simulate a user loggin out from multiple windows
+    # user should not be able to logout as its not logged_in?
+    delete logout_path
+    follow_redirect!
   end
 end

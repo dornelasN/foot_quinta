@@ -90,5 +90,9 @@ RSpec.describe User, type: :model do
 
       expect(@user).not_to be_valid
     end
+
+    it 'should not be authenticated with a nil digest' do
+      expect(@user.authenticated?('')).to eq false
+    end
   end
 end
