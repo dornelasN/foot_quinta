@@ -31,5 +31,8 @@ describe 'User signup' do
     expect(flash[:success]).to be_present
     expect(user_count_before_post).to be < User.count
     expect(response).to render_template(root_path)
+    # checking for logout link if succesful login
+    expect(response.body).to match('Log out')
+    expect(response.body).not_to match('Log in')
   end
 end

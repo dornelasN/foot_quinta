@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rspec/rspec-core.git
-  revision: 46539bce2b107ac0291916dfb727b8c2fc6f92c0
+  revision: 1af055aadf27e9a5463ca2b3123a4e05b903cdda
   branch: master
   specs:
     rspec-core (3.8.pre)
@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-expectations.git
-  revision: eafc87f06b3823442a9b5c372be753d1aad51a47
+  revision: 37b10fb0618ab5d1d272828e73a8c70b55ffaaec
   branch: master
   specs:
     rspec-expectations (3.8.pre)
@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-mocks.git
-  revision: e1e9ce04db4d5f591486ed38617beb553637d08d
+  revision: e11170f0728ba68fd2f8ba96ede8e307c6ed448c
   branch: master
   specs:
     rspec-mocks (3.8.pre)
@@ -40,7 +40,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-support.git
-  revision: aedfec86952d17343ecafcc1ebe66b29e9539cc1
+  revision: 217311340fdc00508d370d40416305eca327d499
   branch: master
   specs:
     rspec-support (3.8.pre)
@@ -88,7 +88,7 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
-    autoprefixer-rails (7.2.3)
+    autoprefixer-rails (7.2.4)
       execjs
     bcrypt (3.1.11)
     bindex (0.5.0)
@@ -97,13 +97,13 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.3)
     byebug (9.1.0)
-    capybara (2.16.1)
+    capybara (2.17.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
-      xpath (~> 2.0)
+      xpath (>= 2.0, < 4.0)
     carrierwave (1.1.0)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
@@ -121,6 +121,11 @@ GEM
     erubi (1.7.0)
     excon (0.60.0)
     execjs (2.7.0)
+    factory_bot (4.8.2)
+      activesupport (>= 3.0.0)
+    factory_bot_rails (4.8.2)
+      factory_bot (~> 4.8.2)
+      railties (>= 3.0.0)
     ffi (1.9.18)
     fog-aws (2.0.0)
       fog-core (~> 1.38)
@@ -148,6 +153,10 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    jquery-rails (4.3.1)
+      rails-dom-testing (>= 1, < 3)
+      railties (>= 4.2.0)
+      thor (>= 0.14, < 2.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -164,7 +173,7 @@ GEM
     mini_magick (4.7.0)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
-    minitest (5.10.3)
+    minitest (5.11.0)
     multi_json (1.12.2)
     nio4r (2.2.0)
     nokogiri (1.8.1)
@@ -248,8 +257,8 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
-    xpath (2.1.0)
-      nokogiri (~> 1.3)
+    xpath (3.0.0)
+      nokogiri (~> 1.8)
 
 PLATFORMS
   ruby
@@ -261,9 +270,11 @@ DEPENDENCIES
   capybara
   carrierwave (= 1.1.0)
   coffee-rails (~> 4.2)
+  factory_bot_rails (~> 4.0)
   fog-aws (= 2.0.0)
   font-awesome-rails
   jbuilder (~> 2.5)
+  jquery-rails
   listen (>= 3.0.5, < 3.2)
   mini_magick (= 4.7.0)
   nokogiri (= 1.8.1)
