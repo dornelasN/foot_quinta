@@ -161,3 +161,15 @@ input {
   width: auto;
   margin-left: 0;
 }
+
+.profile_image {
+  span{
+    margin-left: 10px;
+    float: left;
+  }
+  p{
+    margin: 15px 0 20px 20px;
+    float: left;
+    width: 70%;
+  }
+}
