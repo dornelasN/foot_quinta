@@ -41,7 +41,7 @@ gem 'carrierwave', '1.1.0'
 # Image resizing
 gem 'mini_magick', '4.7.0'
 # Image upload in production
-gem 'fog-aws', '2.0.0'
+gem 'fog', '>= 1.40.0'
 # Dependency for fog-aws
 gem 'nokogiri', '1.8.1'
 
