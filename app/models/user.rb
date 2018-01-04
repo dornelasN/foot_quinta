@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   # Secure Password Attribute (password and password_confirmation)
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   # Name attribute validation
   validates :name, presence: true, length: { maximum: 55 }
