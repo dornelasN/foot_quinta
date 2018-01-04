@@ -1,18 +1,15 @@
 require 'rails_helper'
+require './spec/support/helpers'
 
 describe 'User edit' do
+  include Helpers
   context 'with invalid data' do
     it 'should re-render the edit view' do
       user = create(:user)
+      log_in_as(user.email, user.password)
 
-      patch user_path(user), params: {
-        user: {
-          name: '',
-          email: 'invalid@email',
-          password: 'foo',
-          password_confirmation: 'bar'
-        }
-      }
+      # Edit user with invalid attributes
+      edit_user(user, '', 'invalid@email', 'foo', 'bar')
 
       expect(response).to render_template('users/edit')
     end
@@ -21,17 +18,11 @@ describe 'User edit' do
   context 'with valid data' do
     it 'should render the profile view with udpated attributes' do
       user = create(:user)
+      log_in_as(user.email, user.password)
       name = 'New Name'
       email = 'valid@email.com'
 
-      patch user_path(user), params: {
-        user: {
-          name: name,
-          email: email,
-          password: '',
-          password_confirmation: ''
-        }
-      }
+      edit_user(user, name, email)
       follow_redirect!
       user.reload
 

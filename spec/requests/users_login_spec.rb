@@ -1,13 +1,13 @@
 require 'rails_helper'
+require './spec/support/helpers'
+
+RSpec.configure do |c|
+  c.include Helpers
+end
 
 describe 'User login with invalid information' do
   before :each do
-    post login_path, params: {
-      session: {
-        email: 'invalid@user-email',
-        password: 'false'
-      }
-    }
+    log_in_as('invalid@email', '')
   end
 
   it 'should re-render login page if invalid usr info is submitted' do
@@ -20,16 +20,10 @@ describe 'User login with invalid information' do
 end
 
 describe 'User login with valid information' do
+  include Helpers
   before :each do
     user = create(:user)
-
-    post login_path, params: {
-      session: {
-        email: user.email,
-        password: user.password,
-        remember_me: '1'
-      }
-    }
+    log_in_as(user.email, user.password)
   end
 
   it 'should redirect to users/show if valid user info is submitted' do
@@ -48,14 +42,7 @@ describe 'User login with valid information' do
   it 'should forget user cookies if unchecked "remember_me"' do
     # Login with 'remember_me' unchecked
     user = create(:user)
-
-    post login_path, params: {
-      session: {
-        email: user.email,
-        password: user.password,
-        remember_me: '0'
-      }
-    }
+    log_in_as(user.email, user.password, 0)
 
     expect(cookies['remember_token']).to be_empty
   end

@@ -1,15 +1,10 @@
 require 'rails_helper'
+require './spec/support/helpers'
 
 describe 'User signup' do
+  include Helpers
   it 'should re-render the sign up page if invalid information is submitted' do
-    post signup_path, params: {
-      user: {
-        name: '',
-        email: 'invalid-user@email',
-        password: 'foo',
-        password_confirmation: 'bar'
-      }
-    }
+    sign_up('', 'invalid@email', 'foo', 'bar')
 
     expect(response).to render_template('users/new')
     expect(response).to render_template('shared/_form_errors')
@@ -18,14 +13,7 @@ describe 'User signup' do
   it 'should create a new user and login if valid information is submitted' do
     user_count_before_post = User.count
 
-    post signup_path, params: {
-      user: {
-        name: 'Test User',
-        email: 'test@email.com',
-        password: 'password',
-        password_confirmation: 'password'
-      }
-    }
+    sign_up('Test User', 'validtest@email.com', 'password', 'password')
     follow_redirect!
 
     expect(flash[:success]).to be_present
