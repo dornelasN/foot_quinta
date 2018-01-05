@@ -15,6 +15,18 @@ describe 'User edit' do
     end
   end
 
+  context 'should friendly forward' do
+    it 'if log in after accessing edit page' do
+      user = create(:user)
+      get edit_user_path(user)
+
+      log_in_as(user.email, user.password)
+      follow_redirect!
+
+      expect(response).to render_template('users/edit')
+    end
+  end
+
   context 'with valid data' do
     it 'should render the profile view with udpated attributes' do
       user = create(:user)
