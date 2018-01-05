@@ -6,6 +6,10 @@
     <li>
       <%= image_tag user.picture.url, size: '50x50' %>
       <%= link_to user.name, user %>
+      <% if current_user.admin? && !current_user?(user) && !user.admin? %>
+      | <%= link_to 'Make admin', user, method: :make_admin,
+                                        data: { confirm: "You sure?" } %>
+      <% end %>
     </li>
   <% end %>
 </ul>

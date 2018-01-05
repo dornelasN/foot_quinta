@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   # Make sure users are logged in before being able to access edit and update
   before_action :logged_in_user, only: [:edit, :update, :index]
   before_action :correct_user,   only: [:edit, :update]
+  before_action :admin_user,     only: [:destroy, :make_admin]
 
   def new
     @user = User.new
@@ -40,11 +41,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def make_admin
+    index
+    User.find(params[:id]).update_attribute(:admin, true)
+    render 'index'
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation, :picture)
+                                 :password_confirmation, :picture, :admin)
   end
 
   # Before filters
@@ -61,5 +68,9 @@ class UsersController < ApplicationController
   def correct_user
     @user = User.find(params[:id])
     redirect_to(root_url) unless current_user?(@user)
+  end
+
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
   end
 end
