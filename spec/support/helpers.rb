@@ -38,4 +38,29 @@ module Helpers
   def logout
     delete logout_path
   end
+
+  # POST send reset password email
+  def send_reset_password_email(email)
+    post password_resets_path, params: {
+      password_reset: { email: email }
+    }
+  end
+
+  # PATCH user reset password
+  def reset_user_password(user, password)
+    patch password_reset_path(user.reset_token), {
+      params: {
+        email: user.email,
+        user: {
+          password: password,
+          password_confirmation: password
+        }
+      }
+    }
+  end
+
+  # Returns true if a test user is logged in.
+  def is_logged_in?
+    !session[:user_id].nil?
+  end
 end

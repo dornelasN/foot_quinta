@@ -46,21 +46,27 @@ class User < ApplicationRecord
   end
 
   # Returns true if the given token matches the digest
-  def authenticated?(remember_token)
-    return false if remember_digest.nil?
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  def authenticated?(attribute, token)
+    digest = send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
   end
 
   # Sets the password reset attributes
   def create_reset_digest
     self.reset_token = User.new_token
-    update_attribute(:reset_digest, User.digest(reset_token))
-    update_attribute(:reset_sent_at, Time.zone.now)
+    update_attributes(reset_digest: User.digest(reset_token),
+                      reset_sent_at: Time.now)
   end
 
   # Sends password reset email through UserMailer
   def send_password_reset_email
     UserMailer.password_reset(self).deliver_now
+  end
+
+  # Returns true if a password reset token has already expired
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
   end
 
   private
