@@ -1,4 +1,5 @@
 module Helpers
+  # POST login_path
   def log_in_as(email, password, remember_me = '1')
     post login_path, params: {
       session: {
@@ -9,6 +10,7 @@ module Helpers
     }
   end
 
+  # PATCH user_path(user)
   def edit_user(user, name, email, password = '', password_confirmation = '')
     patch user_path(user), params: {
       user: {
@@ -20,6 +22,7 @@ module Helpers
     }
   end
 
+  # POST signup_path
   def sign_up(name, email, password, password_confirmation)
     post signup_path, params: {
       user: {
@@ -31,6 +34,7 @@ module Helpers
     }
   end
 
+  # DELETE logout_path
   def logout
     delete logout_path
   end
