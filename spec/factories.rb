@@ -1,4 +1,10 @@
 FactoryBot.define do
+  factory :post do
+    title 'Test Post Title'
+    content 'Test post content'
+    user nil
+  end
+
   factory :user do
     name 'Test User'
     sequence(:email) { |n| "testuser-#{n}@email.com".downcase }

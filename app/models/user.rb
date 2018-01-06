@@ -1,5 +1,6 @@
 # Schema: User(name:string, email:string, password_digest:string)
 class User < ApplicationRecord
+  has_many :posts
   attr_accessor :remember_token, :reset_token
   before_save { downcase_email }
 
