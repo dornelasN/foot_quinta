@@ -3,6 +3,14 @@ FactoryBot.define do
     title 'Test Post Title'
     content 'Test post content'
     user nil
+    sequence(:created_at) { |n| (n+5).hours.ago }
+  end
+
+  factory :most_recent_post, class: 'Post' do
+    title 'Most Recent Post Title'
+    content 'Most recent post content'
+    user nil
+    created_at Time.zone.now
   end
 
   factory :user do

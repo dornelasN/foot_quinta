@@ -7,7 +7,7 @@ describe 'DELETE users' do
     user = create(:user)
     user_count_before_delete = User.count
 
-    delete user_path(user)
+    delete_user(user)
     follow_redirect!
 
     expect(User.count).to eq user_count_before_delete
@@ -20,7 +20,7 @@ describe 'DELETE users' do
     user_count_before_delete = User.count
     log_in_as(other_user.email, other_user.password)
 
-    delete user_path(user)
+    delete_user(user)
     follow_redirect!
 
     expect(User.count).to eq user_count_before_delete
@@ -33,7 +33,7 @@ describe 'DELETE users' do
     log_in_as(admin.email, admin.password)
     user_count_before_delete = User.count
 
-    delete user_path(user)
+    delete_user(user)
 
     expect(User.count).to be < user_count_before_delete
     expect(response).to render_template('users/index')
@@ -46,10 +46,20 @@ describe 'DELETE users' do
     log_in_as(admin.email, admin.password)
     user_count_before_delete = User.count
 
-    delete user_path(other_admin)
+    delete_user(other_admin)
 
     expect(User.count).to eq user_count_before_delete
     expect(response).to render_template('users/index')
     expect(flash[:danger]).to be_present
+  end
+
+  it 'associated posts should be destroyed with user deletion' do
+    user = create(:user)
+    post = create(:post, user_id: user.id)
+    posts_count_before_user_delete = Post.count
+
+    user.destroy
+
+    expect(Post.count).to be < posts_count_before_user_delete
   end
 end

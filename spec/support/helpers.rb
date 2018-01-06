@@ -34,6 +34,11 @@ module Helpers
     }
   end
 
+  # DELETE user_path (delete user from db)
+  def delete_user(user)
+    delete user_path(user)
+  end
+
   # DELETE logout_path
   def logout
     delete logout_path
