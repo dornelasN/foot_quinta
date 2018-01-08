@@ -1,0 +1,15 @@
+<%= form_for(@post) do |f| %>
+  <%= form_errors_for @post %>
+
+  <div class='col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4'>
+    <h3>Create a post</h3>
+
+    <%= f.label :title %>
+    <%= f.text_field :title, placeholder: 'Post title', class: 'form-control' %>
+
+    <%= f.label :content %>
+    <%= f.text_area :content, placeholder: 'Compose new post...', class: 'form-control' %>
+
+    <%= f.submit 'Post', class: 'btn btn-primary' %>
+  </div>
+<% end %>

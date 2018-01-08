@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   post '/users/:id',  to: 'users#make_admin', as: 'make_admin'
   resources :users
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :posts,           only: [:new, :create, :destroy]
 end

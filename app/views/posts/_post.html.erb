@@ -7,5 +7,9 @@
   <span class='timestamp'>
   <%= link_to post.user.name, post.user %>
   Posted <%= time_ago_in_words(post.created_at) %> ago.
+  <% if current_user?(post.user) %>
+    <%= link_to '<i class="fa fa-trash-o", aria-hidden="true", title="delete post"></i>'.html_safe,
+        post, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
   </span>
 </li>

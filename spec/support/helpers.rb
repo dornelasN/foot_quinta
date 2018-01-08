@@ -68,4 +68,17 @@ module Helpers
   def is_logged_in?
     !session[:user_id].nil?
   end
+
+  def create_post(title, content)
+    post posts_path, params: {
+      post: {
+        title: title,
+        content: content
+      }
+    }
+  end
+
+  def delete_post(post)
+    delete post_path(post)
+  end
 end

@@ -1,7 +1,14 @@
-<% content_for :title, "Home" %>
+<% if logged_in? %>
+  <div class='row'>
+    <div class='col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3'>
+      <h1>News</h1>
+      <%= link_to "New post", new_post_path %>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
 <div class="center jumbotron mid_area">
   <%= image_tag('sbcuervos_logo.png', height: 200, width: 200) %>
-
 
   <h2>
     This is the home page for the SB Cuervos FC Website.
@@ -10,3 +17,4 @@
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 
 </div>
+<% end %>

@@ -70,6 +70,11 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+  # Defines a proto-feed
+  def feed
+    Post.all
+  end
+
   private
 
   def downcase_email

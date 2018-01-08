@@ -5,7 +5,7 @@ RSpec.describe 'static_pages/home.html.erb', type: :view do
     render template: 'static_pages/home.html.erb',
            layout: 'layouts/application.html.erb'
 
-    expect(rendered).to have_title(full_title('Home'))
+    expect(rendered).to have_title(full_title)
     # turns out assert_select "title", full_title("Home") works as well
   end
 
