@@ -19,7 +19,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
 
   # Profile picture attribute
-  mount_uploader :picture, ProfilePictureUploader
+  mount_uploader :picture, PictureUploader
   validate :picture_size
 
   # Returns the hash digest of the given string.

@@ -3,7 +3,10 @@
     <%= link_to image_tag(post.user.picture.url, size: 50), post.user  %>
   </span>
   <span class='title'><%= post.title %></span>
-  <span class='content'><%= post.content %></span>
+  <span class='content'>
+    <%= image_tag post.picture.post.url if post.picture? %>
+    <%= post.content %>
+  </span>
   <span class='timestamp'>
   <%= link_to post.user.name, post.user %>
   Posted <%= time_ago_in_words(post.created_at) %> ago.
