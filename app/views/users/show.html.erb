@@ -7,4 +7,10 @@
       <%= @user.name %>
     </h1>
   </section>
+  <% if @user.posts.any? %>
+    <h3>Posts (<%= @user.posts.count %>)</h3>
+    <ol class='posts'>
+      <%= render @posts %>
+    </ol>
+  <% end %>
 </div>

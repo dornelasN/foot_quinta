@@ -11,3 +11,10 @@ User.create!(name: 'Nelson Dornelas',
              password: 'foobar',
              password_confirmation: 'foobar',
              admin: true)
+
+users = User.order(:created_at).take(1)
+10.times do
+  title = "This is New post"
+  content = "Let's write some stuff here so that we have a big enough content"
+  users.each { |user| user.posts.create!(title: title, content: content) }
+end
