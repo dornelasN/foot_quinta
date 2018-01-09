@@ -8,13 +8,13 @@
   </div>
 <% else %>
 <div class="center jumbotron mid_area">
-  <%= image_tag('sbcuervos_logo.png', height: 200, width: 200) %>
-
-  <h2>
-    This is the home page for the SB Cuervos FC Website.
-  </h2>
-
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  <div>
+    <%= image_tag('sbcuervos_logo.png', height: 300, width: 300) %>
+  </div>
+  <br/>
+  <div>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
 
 </div>
 <% end %>

@@ -1,7 +1,14 @@
-# SB Cuervos
+# SB Cuervos FC
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+SB Cuervos is a web application created to share the news about the amateur
+soccer team SB Cuervos FC and a tool for the communication between coaches and players.
+
+# Deployment
+
+The application is deployed on Heroku:
+```
+http://sbcuervos.herokuapp.com/
+```
 
 ## Getting started
 
