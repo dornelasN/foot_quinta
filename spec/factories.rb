@@ -1,4 +1,11 @@
 FactoryBot.define do
+  factory :player do
+    name 'Player Name'
+    position 'Goalkeeper'
+    date_of_birth '2018-01-09'
+    team 'Under-8'
+  end
+
   factory :post do
     title 'Test Post Title'
     content 'Test post content'
