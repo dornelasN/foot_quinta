@@ -1,9 +1,13 @@
 FactoryBot.define do
   factory :player do
-    name 'Player Name'
-    position 'Goalkeeper'
-    date_of_birth '2018-01-09'
-    team 'Under-8'
+    name "Player Name"
+    position "Forward"
+    date_of_birth "1990-07-18"
+    team nil
+  end
+
+  factory :team do
+    roster_name "Adults"
   end
 
   factory :post do

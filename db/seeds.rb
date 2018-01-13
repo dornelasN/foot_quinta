@@ -12,9 +12,7 @@ User.create!(name: 'Nelson Dornelas',
              password_confirmation: 'foobar',
              admin: true)
 
-users = User.order(:created_at).take(1)
-10.times do
-  title = "This is New post"
-  content = "Let's write some stuff here so that we have a big enough content"
-  users.each { |user| user.posts.create!(title: title, content: content) }
-end
+valid_team_rosters = %w[Under-7 Under-8 Under-9 Under-10 Adults]
+valid_team_rosters.each { |roster|
+  Team.create!(roster_name: roster)
+}

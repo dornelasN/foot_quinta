@@ -1,0 +1,12 @@
+<% content_for :title, @team.roster_name %>
+<h1><%= @team.roster_name %> Roster</h1>
+
+<% if current_user.admin? %>
+  <%= render 'players/new_player' %>
+<% end %>
+
+<% @team.players.each do |player| %>
+  <h2><%= player.name %></h2>
+  <h2><%= player.position %></h2>
+  <h2><%= player.date_of_birth %></h2>
+<% end %>

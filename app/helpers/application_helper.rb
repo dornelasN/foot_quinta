@@ -12,4 +12,8 @@ module ApplicationHelper
   def form_errors_for(object = nil)
     render('shared/form_errors', object: object) unless object.blank?
   end
+
+  def current_team
+    @current_team = Team.find(params[:id])
+  end
 end
