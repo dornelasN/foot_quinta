@@ -1,12 +1,24 @@
 <% content_for :title, @team.roster_name %>
 <h1><%= @team.roster_name %> Roster</h1>
 
-<% if current_user.admin? %>
-  <%= render 'players/new_player' %>
+<% Player::VALID_POSITIONS.each do |valid_position| %>
+  <div class='row'>
+  <h2><%= valid_position.pluralize %></h2>
+  <% position_row = build_position_rows(valid_position) %>
+    <% position_row.each do |player| %>
+      <ul id='player_position_row'>
+        <li><%= player.name %></li>
+        <li><%= player.position %></li>
+        <li><%= player.date_of_birth %></li>
+      </ul>
+    <% end %>
+    <% if valid_position != Player::VALID_POSITIONS.last %>
+      <hr/>
+    <% end %>
+  </div>
 <% end %>
 
-<% @team.players.each do |player| %>
-  <h2><%= player.name %></h2>
-  <h2><%= player.position %></h2>
-  <h2><%= player.date_of_birth %></h2>
+<% if current_user.admin? %>
+  <hr/> <h3 class='center'>Add a new player</h3>
+  <%= render 'players/new_player' %>
 <% end %>
