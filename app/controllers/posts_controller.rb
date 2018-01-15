@@ -16,9 +16,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def destroy
     @post.destroy
     flash[:success] = 'Post deleted'

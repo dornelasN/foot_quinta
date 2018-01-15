@@ -10,6 +10,10 @@
         <li><%= player.name %></li>
         <li><%= player.position %></li>
         <li><%= player.date_of_birth %></li>
+        <% if current_user.admin? %>
+          <%= link_to '<i class="fa fa-trash-o", aria-hidden="true">delete player</i>'.html_safe,
+            player, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
       </ul>
     <% end %>
     <% if valid_position != Player::VALID_POSITIONS.last %>
