@@ -81,4 +81,28 @@ module Helpers
   def delete_post(post)
     delete post_path(post)
   end
+
+  def create_player(team, attributes)
+    if attributes == 'invalid_attributes'
+      team.players.create(name: '', position: '', date_of_birth: '',
+                         phone_number: '')
+    elsif attributes == 'valid_attributes'
+      team.players.create(name: 'Player1', position: 'Forward',
+                          date_of_birth: '2008-10-09', phone_number: '8051234567')
+    else
+      post players_path, params: {
+        player: {
+          name: 'Player1',
+          phone_number: '8051234567',
+          position: 'Forward',
+          date_of_birth: '2008-10-09',
+          team_id: team.id
+        }
+      }
+    end
+  end
+
+  def delete_player(player)
+    delete player_path(player)
+  end
 end

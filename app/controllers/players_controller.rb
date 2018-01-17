@@ -22,14 +22,15 @@ class PlayersController < ApplicationController
 
   def destroy
     @player = Player.find(params[:id])
+    @team = Team.find_by_id(@player.team_id)
     @player.destroy
     flash[:success] = 'Player deleted'
-    redirect_to request.referrer
+    redirect_to request.referrer || @team
   end
 
   private
 
   def player_params
-    params.require(:player).permit(:name, :date_of_birth, :position)
+    params.require(:player).permit(:name, :date_of_birth, :position, :phone_number)
   end
 end

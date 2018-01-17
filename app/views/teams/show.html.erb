@@ -8,9 +8,9 @@
     <% position_row.each do |player| %>
       <ul id='player_position_row'>
         <li><%= player.name %></li>
-        <li><%= player.position %></li>
         <li><%= player.date_of_birth %></li>
         <% if current_user.admin? %>
+          <li><%= player.phone_number %></li>
           <%= link_to '<i class="fa fa-trash-o", aria-hidden="true">delete player</i>'.html_safe,
             player, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
@@ -23,6 +23,8 @@
 <% end %>
 
 <% if current_user.admin? %>
-  <hr/> <h3 class='center'>Add a new player</h3>
+  <hr/>
   <%= render 'players/new_player' %>
+  <hr/>
+  <%= render 'teams/send_text' %>
 <% end %>

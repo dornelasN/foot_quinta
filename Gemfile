@@ -44,7 +44,8 @@ gem 'mini_magick', '4.7.0'
 gem 'fog', '>= 1.40.0'
 # Dependency for fog-aws
 gem 'nokogiri', '1.8.1'
-
+# use Twilio to send SMS messages to users
+gem 'twilio-ruby'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

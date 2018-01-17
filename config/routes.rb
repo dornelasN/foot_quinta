@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/login',      to: 'sessions#create'
   delete '/logout',   to: 'sessions#destroy'
   post '/users/:id',  to: 'users#make_admin', as: 'make_admin'
+  post '/teams/teamtext', to: 'teams#teamtext'
   resources :users
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :posts,           only: [:new, :create, :destroy]

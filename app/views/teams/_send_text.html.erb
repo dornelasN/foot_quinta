@@ -1,0 +1,14 @@
+<div class='row'>
+  <div class='col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4'>
+  <h3 class='center'>Send SMS Texts to Team</h3>
+    <%= form_tag('teamtext', method: 'post') do %>
+        <%= hidden_field_tag :team_id, @team.id %>
+
+        <%= label_tag(:sms_body, 'SMS Message:') %>
+        <%= text_area_tag(:sms_body, '', size: '20x6') %>
+
+        <%= submit_tag('Send Team Texts', class: 'btn btn-primary') %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -37,4 +37,22 @@ RSpec.describe Player, type: :model do
 
     expect(player).not_to be_valid
   end
+
+  it 'should not be valid when phone number is invalid' do
+    player.phone_number = ''
+
+    expect(player).not_to be_valid
+
+    player.phone_number = '123456789'
+
+    expect(player).not_to be_valid
+
+    player.phone_number = '12345678901'
+
+    expect(player).not_to be_valid
+
+    player.phone_number = '1234567890'
+
+    expect(player).to be_valid
+  end
 end

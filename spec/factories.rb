@@ -3,6 +3,7 @@ FactoryBot.define do
     name "Player Name"
     position "Forward"
     date_of_birth "1990-07-18"
+    phone_number "8051234567"
     team nil
   end
 

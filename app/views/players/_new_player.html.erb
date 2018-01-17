@@ -1,5 +1,6 @@
 <div class='row'>
   <div class='col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4'>
+    <h3 class='center'>Add a new Player</h3>
     <%= form_for(@player) do |f| %>
       <%= form_errors_for @player %>
 
@@ -10,6 +11,9 @@
 
         <%= f.label :position %>
         <%= f.select :position, Player::VALID_POSITIONS %>
+
+        <%= f.label :phone %>
+        <%= f.text_field :phone_number, placeholder: 'No stylings: please insert phone as 8051234567', class: 'form-control' %>
 
         <%= f.label :date_of_birth %>
         <%= f.date_select :date_of_birth, start_year: Date.current.year, end_year: 1980 %>
