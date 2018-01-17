@@ -1,22 +1,25 @@
 <% content_for :title, "Contact Us" %>
 <h1>Contact</h1>
 
-<p class="center">
-  Have anything to share with us? Please send a message through the form below
-  with your contact information so that we can get back to you!
-</p>
+<div class="row">
+  <div class='col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3'>
+    <p class='center'>
+      Have anything to share with us? Please send a message through the form below
+      with your contact information so that we can get back to you!
+    </p>
+    <%= form_for(@message, url: contact_path) do |f| %>
+      <%= form_errors_for @message %>
 
-<%= form_for(@message, url: contact_path) do |f| %>
-  <%= form_errors_for @message %>
+      <%= f.label :name %>
+      <%= f.text_field :name, placeholder: 'Name', class: 'form-control' %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name, placeholder: 'Name', class: 'form-control' %>
+      <%= f.label :email %>
+      <%= f.email_field :email, placeholder: 'email', class: 'form-control' %>
 
-  <%= f.label :email %>
-  <%= f.email_field :email, placeholder: 'email', class: 'form-control' %>
+      <%= f.label :message %>
+      <%= f.text_area :body, placeholder: 'Message content', class: 'form-control'%>
 
-  <%= f.label :message %>
-  <%= f.text_area :body, placeholder: 'Message content', class: 'form-control'%>
-
-  <%= f.submit 'Send', class: 'btn btn-primary' %>
-<% end %>
+      <%= f.submit 'Send', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
