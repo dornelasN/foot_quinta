@@ -26,3 +26,5 @@
 /public/uploads
 
 .DS_Store
+
+/config/app_environment_variables.rb
