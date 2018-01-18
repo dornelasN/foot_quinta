@@ -12,6 +12,11 @@
         <%= f.label :content %>
         <%= f.text_area :content, placeholder: 'Compose new post...', class: 'form-control' %>
 
+        <%= f.label :public, class: 'checkbox inline' do %>
+          <%= f.check_box :public %>
+          <span>Make post public</span>
+        <% end %>
+
         <span class='picture'>
           <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
         </span>

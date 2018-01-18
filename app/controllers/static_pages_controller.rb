@@ -3,6 +3,8 @@ class StaticPagesController < ApplicationController
     if logged_in?
       @post = current_user.posts.build
       @feed_items = current_user.feed
+    else
+      @feed_items = Post.select { |post| post.public == true }
     end
   end
 

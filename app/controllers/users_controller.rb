@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   # Make sure users are logged in before being able to access edit and update
-  before_action :logged_in_user, only: [:edit, :update, :index, :destroy, :make_admin]
+  before_action :logged_in_user, only: [:edit, :update, :index, :destroy, :make_admin, :show]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: [:destroy, :make_admin]
 
