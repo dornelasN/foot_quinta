@@ -1,4 +1,4 @@
-<li id="post-<%= post.id %>">
+<li id="post-<%= post.id %>" class='jumbotron'>
   <span class='profile-picture'>
     <%= link_to image_tag(post.user.picture.url, size: 50), post.user  %>
   </span>
@@ -15,4 +15,17 @@
         post, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
   </span>
+  <% if logged_in? %>
+    </br><strong>Comments</strong></br>
+      <ul class='comments'>
+        <%= render(partial: 'comments/comment', collection: post.comments) %>
+      </ul>
+
+      <div id='post-add-comment'>
+      <%= form_for([post, Comment.new]) do |f| %>
+          <%= f.text_area :body, placeholder: 'Add a comment...', class:'body-area' %>
+          <%= f.submit 'Add Comment', class:'comment-add-button' %>
+      <% end %>
+      </div>
+  <% end %>
 </li>

@@ -6,6 +6,7 @@ class Post < ApplicationRecord
   validates :content, presence: true
   mount_uploader :picture, PictureUploader
   validate :picture_size
+  has_many :comments, as: :commentable
 
   private
 

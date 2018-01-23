@@ -13,7 +13,14 @@ Rails.application.routes.draw do
   post '/teams/teamtext', to: 'teams#teamtext'
   resources :users
   resources :password_resets, only: [:new, :create, :edit, :update]
-  resources :posts,           only: [:new, :create, :destroy]
   resources :players
   resources :teams
+
+  resources :posts do
+    resources :comments
+  end
+
+  resources :comments do
+    resources :comments
+  end
 end

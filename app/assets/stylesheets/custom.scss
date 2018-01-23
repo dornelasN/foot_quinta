@@ -179,6 +179,19 @@ input {
   }
 }
 
+#post-add-comment {
+  height: wrap-content;
+  .body-area{
+    width: 100%;
+    margin: 0;
+  }
+  .comment-add-button{
+    background-color: lightblue;
+    float: right;
+    width: 25%;
+  }
+}
+
 /* Users index */
 
 .users {
@@ -197,7 +210,7 @@ input {
   list-style: none;
   padding: 0;
   li {
-    padding: 10px 0;
+    padding: 25px 0;
     border-bottom: 1px solid $light-gray;
   }
   .title {
@@ -220,6 +233,15 @@ input {
     float: left;
     margin-right: 10px;
     margin-top: 5px;
+  }
+}
+
+.comments {
+  list-style: none;
+  li {
+    padding: 0 0 5px 5px;
+    border-left: 0.5px solid $light-gray;
+    margin-bottom: 25px;
   }
 }
 
