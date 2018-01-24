@@ -18,7 +18,8 @@
         <% end %>
 
         <span class='picture'>
-          <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+          Picture: <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+          Video: <%= f.file_field :video %>
         </span>
 
         <%= f.submit 'Post', class: 'btn btn-primary' %>

@@ -223,6 +223,9 @@ input {
       display: block;
       padding: 5px 0;
     }
+    video {
+      display: block;
+    }
   }
   .timestamp {
     color: $light-gray;

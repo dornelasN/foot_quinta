@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   mount_uploader :picture, PictureUploader
   validate :picture_size
   has_many :comments, as: :commentable
+  mount_uploader :video, VideoUploader
 
   private
 

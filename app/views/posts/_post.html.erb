@@ -4,7 +4,11 @@
   </span>
   <span class='title'><%= post.title %></span>
   <span class='content'>
-    <%= image_tag post.picture.post.url if post.picture? %>
+    <% if post.picture? %>
+      <%= image_tag post.picture.post.url %>
+    <% elsif post.video? %>
+      <%= video_tag post.video_url.to_s, size: '350x250', controls: true %>
+    <% end %>
     <%= post.content %>
   </span>
   <span class='timestamp'>
