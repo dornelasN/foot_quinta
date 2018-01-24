@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :logged_in_user, only: [:new, :create, :destroy]
   before_action :find_commentable
+  before_action :admin_user, only: [:destroy]
 
   def new
     @comment = Comment.new
@@ -17,6 +18,13 @@ class CommentsController < ApplicationController
       redirect_to root_url
       flash[:danger] = 'Your comment was not added'
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    flash[:success] = 'Comment was deleted'
+    redirect_to root_url
   end
 
   private

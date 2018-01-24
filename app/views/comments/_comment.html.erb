@@ -1,7 +1,10 @@
 <li>
   <%= comment.body %><br/>
   <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.user_name %></small>
-
+  <% if current_user.admin? %>
+    <%= link_to '<i class="fa fa-trash-o", aria-hidden="true"></i>'.html_safe,
+            comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
   <ul class='comments'>
     <%= render(partial: 'comments/comment', collection: comment.comments) %>
   </ul>

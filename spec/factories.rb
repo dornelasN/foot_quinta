@@ -1,9 +1,4 @@
 FactoryBot.define do
-  factory :comment do
-    body "MyText"
-    commentable_id 1
-    commentable_type "MyString"
-  end
   factory :player do
     name "Player Name"
     position "Forward"
@@ -19,6 +14,14 @@ FactoryBot.define do
   factory :post do
     title 'Test Post Title'
     content 'Test post content'
+    user nil
+    sequence(:created_at) { |n| (n+5).hours.ago }
+  end
+
+  factory :public_post do
+    title 'Test Post Title'
+    content 'Test post content'
+    public true
     user nil
     sequence(:created_at) { |n| (n+5).hours.ago }
   end

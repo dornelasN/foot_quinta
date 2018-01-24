@@ -69,7 +69,7 @@ module Helpers
     !session[:user_id].nil?
   end
 
-  def create_post(title, content)
+  def create_post(title = 'Some Title', content = 'Some Content')
     post posts_path, params: {
       post: {
         title: title,
