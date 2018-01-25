@@ -1,4 +1,11 @@
 FactoryBot.define do
+  factory :game do
+    cuervos_goals 1
+    adversary_team "Another Team"
+    adversary_goals 1
+    team Team.first
+  end
+
   factory :player do
     name "Player Name"
     position "Forward"

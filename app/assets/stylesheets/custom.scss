@@ -271,3 +271,22 @@ span.picture {
   display: inline-block;
   border: 0.5px solid black;
 }
+
+.team_view {
+  display: inline-block;
+  .team_players{
+    padding-left: 100px;
+  }
+  .players_per_position {
+    overflow: auto;
+  }
+}
+
+.goals {
+  width: 10%;
+}
+
+#adversary_team {
+  width: 33%;
+  margin-left: 5px;
+}

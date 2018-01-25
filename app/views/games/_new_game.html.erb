@@ -1,0 +1,11 @@
+<h2>Add a new Game</h2>
+<%= form_for(@game = Game.new) do |f| %>
+  <%= form_errors_for @game %>
+
+  <%= hidden_field_tag :team_id, @team.id %>
+
+  SB Cuervos FC <%= f.text_field :cuervos_goals, class:'goals' %>
+  x <%= f.text_field :adversary_goals, class:'goals' %> <%= f.text_field :adversary_team, id:'adversary_team' %>
+
+  <%= f.submit 'Submit game result' %>
+<% end %>

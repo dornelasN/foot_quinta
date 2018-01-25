@@ -1,0 +1,9 @@
+<div class='center'>
+  <h2>Previous Games</h2>
+  <% @team.games.each do |game| %>
+    <div>SB Cuervos FC <%= game.cuervos_goals %> x <%= game.adversary_goals %> <%= game.adversary_team %></div><br/>
+  <% end %>
+  <% if current_user.admin? %>
+    <%= render 'games/new_game' %>
+  <% end %>
+</div>
