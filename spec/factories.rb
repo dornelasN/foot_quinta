@@ -3,6 +3,7 @@ FactoryBot.define do
     cuervos_goals 1
     adversary_team "Another Team"
     adversary_goals 1
+    game_date "2017-01-24"
     team Team.first
   end
 

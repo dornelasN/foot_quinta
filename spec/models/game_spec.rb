@@ -32,5 +32,11 @@ RSpec.describe Game, type: :model do
 
       expect(game).not_to be_valid
     end
+
+    it 'if game_date is invalid' do
+      game.game_date = nil
+
+      expect(game).not_to be_valid
+    end
   end
 end
