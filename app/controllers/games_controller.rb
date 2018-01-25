@@ -31,6 +31,6 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:cuervos_goals, :adversary_team, :adversary_goals)
+    params.require(:game).permit(:cuervos_goals, :adversary_team, :adversary_goals, :game_date)
   end
 end

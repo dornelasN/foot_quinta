@@ -7,4 +7,5 @@ class Player < ApplicationRecord
   validates_inclusion_of :position, in: VALID_POSITIONS
 
   validates :phone_number, length: { is: 10 }
+  mount_uploader :picture, PictureUploader
 end

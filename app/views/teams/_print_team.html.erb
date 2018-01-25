@@ -4,10 +4,11 @@
     <% position_row = build_position_rows(valid_position) %>
       <% position_row.each do |player| %>
         <ul id='player_position_row'>
+          <li class='center'><%= image_tag player.picture.profile.url if player.picture? %></li>
           <li><%= player.name %></li>
-          <li><%= player.date_of_birth %></li>
+          <li>DoB: <%= formatted_date(player.date_of_birth) %></li>
           <% if current_user.admin? %>
-            <li><%= player.phone_number %></li>
+            <li>Phone: <%= number_to_phone(player.phone_number, area_code: true) %></li>
             <%= link_to '<i class="fa fa-trash-o", aria-hidden="true">delete player</i>'.html_safe,
               player, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>

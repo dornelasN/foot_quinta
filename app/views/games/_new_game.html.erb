@@ -6,6 +6,9 @@
 
   SB Cuervos FC <%= f.text_field :cuervos_goals, class:'goals' %>
   x <%= f.text_field :adversary_goals, class:'goals' %> <%= f.text_field :adversary_team, id:'adversary_team' %>
+  <br/>
+  <%= f.label :date %>
+  <%= f.date_select :game_date, start_year: Date.current.year, end_year: 2020 %>
 
   <%= f.submit 'Submit game result' %>
 <% end %>

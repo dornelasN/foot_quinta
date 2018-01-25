@@ -6,6 +6,7 @@
     <%= link_to '<i class="fa fa-trash-o", aria-hidden="true"></i>'.html_safe,
                 game, method: :delete, data: { confirm: 'Are you sure?' } if current_user.admin? %>
     </div>
+    <small><%= formatted_date(game.game_date) if game.game_date? %></small>
     <br/>
   <% end %>
   <% if current_user.admin? %>
