@@ -1,0 +1,20 @@
+<% Player::VALID_POSITIONS.each do |valid_position| %>
+  <h2><%= valid_position.pluralize %></h2>
+  <div class='players_per_position'>
+    <% position_row = build_position_rows(valid_position) %>
+      <% position_row.each do |player| %>
+        <ul id='player_position_row'>
+          <li><%= player.name %></li>
+          <li><%= player.date_of_birth %></li>
+          <% if current_user.admin? %>
+            <li><%= player.phone_number %></li>
+            <%= link_to '<i class="fa fa-trash-o", aria-hidden="true">delete player</i>'.html_safe,
+              player, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </ul>
+      <% end %>
+      <% if valid_position != Player::VALID_POSITIONS.last %>
+        <hr/>
+      <% end %>
+  </div>
+<% end %>

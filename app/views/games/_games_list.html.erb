@@ -1,7 +1,12 @@
 <div class='center'>
   <h2>Previous Games</h2>
   <% @team.games.each do |game| %>
-    <div>SB Cuervos FC <%= game.cuervos_goals %> x <%= game.adversary_goals %> <%= game.adversary_team %></div><br/>
+    <div>
+    SB Cuervos FC <%= game.cuervos_goals %> x <%= game.adversary_goals %> <%= game.adversary_team %>
+    <%= link_to '<i class="fa fa-trash-o", aria-hidden="true"></i>'.html_safe,
+                game, method: :delete, data: { confirm: 'Are you sure?' } if current_user.admin? %>
+    </div>
+    <br/>
   <% end %>
   <% if current_user.admin? %>
     <%= render 'games/new_game' %>

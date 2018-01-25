@@ -20,6 +20,14 @@ class GamesController < ApplicationController
     end
   end
 
+  def destroy
+    @game = Game.find(params[:id])
+    @team = Team.find_by_id(@game.team_id)
+    @game.destroy
+    flash[:success] = 'Game deleted'
+    redirect_to request.referrer || @team
+  end
+
   private
 
   def game_params
