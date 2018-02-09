@@ -16,7 +16,8 @@ class GamesController < ApplicationController
       flash[:success] = 'Game created.'
       redirect_to @team
     else
-      render @team
+      flash[:danger] = 'Game was not created. Make sure you have all inputs filled.'
+      redirect_to @team
     end
   end
 

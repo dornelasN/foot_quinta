@@ -16,7 +16,9 @@ class PlayersController < ApplicationController
       flash[:success] = 'Player created.'
       redirect_to @team
     else
-      render @team
+      flash[:danger] = 'Player was not created. Make sure to fill the inputs as requested'
+      redirect_to @team
+      # render 'teams/show'
     end
   end
 

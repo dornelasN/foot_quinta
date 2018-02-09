@@ -16,6 +16,7 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 # Use Bootstrap-sass to convert Less to Sass
 gem 'bootstrap-sass', '>= 3.3.7'
+gem 'bootstrap-datepicker-rails'
 # Use font-awesome-rails for web fonts and stylesheets
 gem 'font-awesome-rails'
 # Use Uglifier as compressor for JavaScript assets

@@ -1,14 +1,27 @@
-<h2>Add a new Game</h2>
-<%= form_for(@game = Game.new) do |f| %>
-  <%= form_errors_for @game %>
+<div id='new-game-form'>
+  <h3>Add a new Game</h3></br>
+  <%= form_for(@game = Game.new) do |f| %>
+    <%= form_errors_for @game %>
 
-  <%= hidden_field_tag :team_id, @team.id %>
+    <%= hidden_field_tag :team_id, @team.id %>
 
-  SB Cuervos FC <%= f.text_field :cuervos_goals, class:'goals' %>
-  x <%= f.text_field :adversary_goals, class:'goals' %> <%= f.text_field :adversary_team, id:'adversary_team' %>
-  <br/>
-  <%= f.label :date %>
-  <%= f.date_select :game_date, start_year: 2017, end_year: 2020 %>
+    <span id='cuervos'>SB Cuervos FC</span> <%= f.text_field :cuervos_goals, class:'goals' %>
+    x <%= f.text_field :adversary_goals, class:'goals' %>
+    <%= f.text_field :adversary_team, id:'adversary_team' %>
 
-  <%= f.submit 'Submit game result' %>
-<% end %>
+    <div id="datepicker" data-date=<%= Date.current.to_s(:long) %>>
+      <%= f.hidden_field :game_date, id:'hidden_date' %>
+    </div>
+
+    <%= f.submit 'Submit game result', class:'btn btn-primary', size:50 %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+  $('#datepicker').datepicker();
+  $('#datepicker').on('changeDate', function() {
+    $('#hidden_date').val(
+      $('#datepicker').adtepicker('getFormattedDate')
+    );
+  })
+</script>

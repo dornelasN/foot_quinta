@@ -264,6 +264,27 @@ span.picture {
 
 /* Team Rosters */
 
+.games-col {
+  float: left;
+  height: 100vh;
+  margin-right: 100px;
+  width: 25%;
+  .btn {
+    width: 55%;
+    margin: auto;
+  }
+  #new-game-form {
+    margin-top: 15px;
+    border-radius: 10%;
+    background-color: rgb(214, 218, 219);
+    padding: 1px 5px 10px;
+  }
+  #datepicker {
+    width: 75%;
+    margin: 0 auto;
+  }
+}
+
 #player_position_row {
   padding: 10px;
   margin-right: 10px;
@@ -273,9 +294,8 @@ span.picture {
 }
 
 .team_view {
-  display: inline-block;
-  .team_players{
-    padding-left: 100px;
+  .team-roster{
+    width: 65%;
   }
   .players_per_position {
     overflow: auto;
@@ -284,6 +304,10 @@ span.picture {
 
 .goals {
   width: 10%;
+}
+
+#cuervos {
+  width: 33%;
 }
 
 #adversary_team {
