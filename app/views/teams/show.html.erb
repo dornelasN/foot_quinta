@@ -2,17 +2,19 @@
 <h1><%= @team.roster_name %> Roster</h1>
 
 <div class='team_view'>
-  <aside class='games-col center'>
+  <aside class='games_col center'>
     <%= render 'games/games_list' %>
   </aside>
-  <aside class='roster-view'>
+  <aside class='roster_view'>
     <%= render 'teams/print_team' %>
   </aside>
 </div>
 
-<% if current_user.admin? %>
-  <hr/>
-  <%= render 'players/new_player' %>
-  <hr/>
-  <%= render 'teams/send_text' %>
-<% end %>
+<div id='team_admin'>
+  <% if current_user.admin? %>
+    <hr/>
+    <%= render 'players/new_player' %>
+    <hr/>
+    <%= render 'teams/send_text' %>
+  <% end %>
+</div>

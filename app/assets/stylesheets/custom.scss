@@ -264,16 +264,16 @@ span.picture {
 
 /* Team Rosters */
 
-.games-col {
+.games_col {
   float: left;
   height: 100vh;
-  margin-right: 100px;
+  margin-right: 10%;
   width: 25%;
   .btn {
     width: 55%;
     margin: auto;
   }
-  #new-game-form {
+  #new_game_form {
     margin-top: 15px;
     border-radius: 10%;
     background-color: rgb(214, 218, 219);
@@ -287,19 +287,27 @@ span.picture {
 
 #player_position_row {
   padding: 10px;
+  height: 30vh;
   margin-right: 10px;
   list-style: none;
   display: inline-block;
   border: 0.5px solid black;
+  border-radius: 10%;
+  background-color: rgb(214, 218, 219);
 }
 
 .team_view {
-  .team-roster{
+  .roster_view {
+    margin-left: 35%;
     width: 65%;
   }
   .players_per_position {
     overflow: auto;
   }
+}
+
+#team_admin {
+  clear: both;
 }
 
 .goals {

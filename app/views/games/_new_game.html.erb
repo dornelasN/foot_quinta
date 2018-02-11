@@ -1,4 +1,4 @@
-<div id='new-game-form'>
+<div id='new_game_form'>
   <h3>Add a new Game</h3></br>
   <%= form_for(@game = Game.new) do |f| %>
     <%= form_errors_for @game %>
@@ -18,10 +18,12 @@
 </div>
 
 <script type="text/javascript">
-  $('#datepicker').datepicker();
+  $('#datepicker').datepicker( {
+    format: 'yyyy-mm-dd'
+  });
   $('#datepicker').on('changeDate', function() {
     $('#hidden_date').val(
-      $('#datepicker').adtepicker('getFormattedDate')
+      $('#datepicker').datepicker('getFormattedDate')
     );
   })
 </script>
